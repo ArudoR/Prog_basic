@@ -30,7 +30,7 @@ body{
 	font-size: 28px;
 }
 
-.tarjetas{
+.tarjetas, .tarjetas__ataques{
 	display: flex;
 	gap: 10px;
 }
@@ -55,7 +55,7 @@ body{
 }
 
 input{
-	display: none;
+	/* display: none; */
 }
 
 #boton__mascota{
@@ -80,7 +80,7 @@ input{
 	box-sizing: border-box;
 	border-radius: 20px;
 	border-color: transparent;
-	width: 100px;
+	width: 150px;
 	color: #fc2f68;
 	font-family: 'Poppins', sans-serif;
 }
@@ -108,4 +108,16 @@ input{
 	display: grid;
 	grid-template-columns: 100px 100px;
 	text-align: center;
+}
+
+.ataques_jugador, .ataques_enemigo{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+@media (max-width: 360px){
+	.tarjetas, .tarjetas__ataques{
+		flex-direction: column;
+	}
 }
