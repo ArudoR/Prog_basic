@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #000046;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    
+}
+
+.container span{
+    font-size: 80pt;
+    font-weight: bold;
+    position: relative;
+    font-family: "Fredoka One";
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.container span::before{
+    content: var(--l);
+    position: absolute;
+    transform: scale(1.);
+    filter: blur(15);
+}
+
+.container span::after{
+    content: var(--l);
+    position: absolute;
+    top: 80%;
+    left: 0;
+    filter: blur(30px);
+    transform: rotateX(50deg);
+}
+
+.container span:hover{
+    filter: contrast(250%);
+}
+
+.container span{
+    color: silver;
+}
