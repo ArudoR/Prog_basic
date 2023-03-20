@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Mokepon</title>
+</head>
+<body>
+    <script src="./js/mokepon.js"></script>
+
+    <section id="seleccionar__mascota">
+        <h1 id="title">Mokepon</h1>
+        <h2 class="subtitulo">Elige a tu mascota:</h2>
+
+        <div class="tarjetas">
+            <label class="tarjeta_de_mokepon" for="hipodoge">
+                <p>Hipodoge</p>
+                <img src="./assets/DALL·E 2023-03-09 10.49.13 - hipodoge great creature of a 3d videogame fight with a sword its a combination of a hipopotamus and shiba inu meme in rusia train station.png" alt="Hipodogue">
+            </label>
+            <input type="radio" name="mascota" id="hipodoge">
+    
+            <label class="tarjeta_de_mokepon" for="capipepo">
+                <p>Capipepo</p>
+                <img src="./assets/DALL·E 2023-03-17 11.42.03 - I am looking for an image of a pokemon-like creature that is similar to a capybara that controls electrical powers and is located inside a subway stat.png" alt="Capipepo">
+            </label>
+            <input type="radio" name="mascota" id="capipepo">
+    
+            <label class="tarjeta_de_mokepon" for="ratigueya">
+                <p>Ratigueya</p>
+                <img src="./assets/DALL·E 2023-03-17 11.47.37 - a digital art image of a rather large and imposing tiger-like pokemon-like creature with angry facial features that are rodent-like.png" alt="Ratigueya">
+            </label>
+            <input type="radio" name="mascota" id="ratigueya">
+        </div>
+        
+        <!-- Hipodoge -> Agua
+        Capipepo -> Tierra
+        Ratigueya -> Fuego
+        Langostelvis -> Agua y Fuego
+        Tucapalma -> Agua y la Tierra
+        Pydos -> Tiera y Fuego -->
+        
+        <button id="boton__mascota">Seleccionar</button>
+    </section>
+
+
+    <section id="seleccionar__ataque">
+        <h1 id="title">Mokepon</h1>
+        <h2 class="subtitulo">Elige a tu ataque:</h2> 
+
+        <div>
+            <button id="boton__fuego" class="boton_de_ataque">Fuego 🔥</button>
+            <button id="boton__agua" class="boton_de_ataque">Agua 🌊</button>
+            <button id="boton__tierra" class="boton_de_ataque">Tierra 🍃</button>
+        </div>
+
+            <div id="mensajes">
+                <p id="resultado"></p>
+
+                <section id="reiniciar">
+                    <button id="boton__reiniciar">Reiniciar</button>
+                </section>
+            </div>
+
+        <div>
+            <div id="ataques-del-jugador"></div>
+            <div id="ataques-del-enemigo"></div>
+            <p>Tu mascota <span id="mascota__jugador"></span> tiene <span id="vidas_Jugador">3</span> vidas 💖</p>
+            <p>La mascota <span id="mascota__enemigo"></span> del enemigo tiene <span id="vidas_Enemigo">3</span> vidas 💖</p> 
+        </div>             
+    </section>
+</body>
+</html>
