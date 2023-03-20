@@ -103,3 +103,9 @@ input{
 	font-family: 'Poppins', sans-serif;
 	color: #f9ebc4;
 }
+
+.ataques{
+	display: grid;
+	grid-template-columns: 100px 100px;
+	text-align: center;
+}
