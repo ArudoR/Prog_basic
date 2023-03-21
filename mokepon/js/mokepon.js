@@ -33,6 +33,7 @@ class Mokepon {
         this.nombre = nombre
         this.foto = foto
         this.vida = vida
+        this.ataques = []
     }
 }
 
@@ -42,9 +43,30 @@ let capipepo = new Mokepon('Capipepo', './assets/DALL·E 2023-03-17 11.42.03 - I
 
 let ratigueya = new Mokepon('Ratigueya', './assets/DALL·E 2023-03-17 11.47.37 - a digital art image of a rather large and imposing tiger-like pokemon-like creature with angry facial features that are rodent-like.png', 5)
 
-mokepones.push(hipodoge, capipepo, ratigueya)
+hipodoge.ataques.push(
+    {nombre: '🌊', id: 'boton__agua'},
+    {nombre: '🌊', id: 'boton__agua'},
+    {nombre: '🌊', id: 'boton__agua'},
+    {nombre: '🔥', id: 'boton__fuego'},
+    {nombre: '🍃', id: 'boton__tierra'},
+)
 
-console.log(mokepones)
+capipepo.ataques.push(
+    {nombre: '🍃', id: 'boton__tierra'},
+    {nombre: '🍃', id: 'boton__tierra'},
+    {nombre: '🍃', id: 'boton__tierra'},
+    {nombre: '🌊', id: 'boton__agua'},
+    {nombre: '🔥', id: 'boton__fuego'},
+)
+
+ratigueya.ataques.push(
+    {nombre: '🔥', id: 'boton__fuego'},
+    {nombre: '🔥', id: 'boton__fuego'},
+    {nombre: '🔥', id: 'boton__fuego'},
+    {nombre: '🌊', id: 'boton__agua'},
+    {nombre: '🍃', id: 'boton__tierra'},
+)
+
 
 function iniciarJuego(){
     sectionSeleccionarAtaque.style.display = 'none';
