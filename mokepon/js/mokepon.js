@@ -20,11 +20,12 @@ const spanVidasEnemigo = document.getElementById('vidas_Enemigo')
 const sectionMensajes = document.getElementById('resultado')
 const ataquesDelJugador = document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
-
+const contenedorTarjetas = document.getElementById('contenedorTarjetas')
 
 let mokepones = []
 let ataqueJugador;
 let ataqueEnemigo;
+let opcionDeMokepones
 let vidasJugador = 3;
 let vidasEnemigo = 3;
 
@@ -37,11 +38,9 @@ class Mokepon {
     }
 }
 
-let hipodoge = new Mokepon('Hipodogue', './assets/DALL·E 2023-03-09 10.49.13 - hipodoge great creature of a 3d videogame fight with a sword its a combination of a hipopotamus and shiba inu meme in rusia train station.png', 5)
-
-let capipepo = new Mokepon('Capipepo', './assets/DALL·E 2023-03-17 11.42.03 - I am looking for an image of a pokemon-like creature that is similar to a capybara that controls electrical powers and is located inside a subway stat.png', 5)
-
-let ratigueya = new Mokepon('Ratigueya', './assets/DALL·E 2023-03-17 11.47.37 - a digital art image of a rather large and imposing tiger-like pokemon-like creature with angry facial features that are rodent-like.png', 5)
+let hipodoge = new Mokepon('Hipodogue', './assets/hipodogue_img.png', 5)
+let capipepo = new Mokepon('Capipepo', './assets/capipepo_img.png', 5)
+let ratigueya = new Mokepon('Ratigueya', './assets/ratigueya_img.png', 5)
 
 hipodoge.ataques.push(
     {nombre: '🌊', id: 'boton__agua'},
@@ -67,9 +66,20 @@ ratigueya.ataques.push(
     {nombre: '🍃', id: 'boton__tierra'},
 )
 
+mokepones.push(hipodoge, capipepo, ratigueya)
 
 function iniciarJuego(){
     sectionSeleccionarAtaque.style.display = 'none';
+    mokepones.forEach((Mokepon)=>{
+        opcionDeMokepones = `
+        <input type="radio" name="mascota" id=${Mokepon.nombre}>
+        <label class="tarjeta_de_mokepon" for=${Mokepon.nombre}>
+            <p>${Mokepon.nombre}</p>
+            <img src=${Mokepon.foto} alt=${Mokepon.nombre}>
+        </label>
+        `
+        contenedorTarjetas.innerHTML += opcionDeMokepones
+    })
     sectionReiniciar.style.display = 'none';
     botonMascota.addEventListener('click', seleccionarMascotaJugador);
     botonFuego.addEventListener('click', ataqueFuego);
