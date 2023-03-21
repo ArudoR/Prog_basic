@@ -55,7 +55,12 @@ body{
 }
 
 input{
-	/* display: none; */
+	display: none;
+}
+
+input:checked + label{
+	background-color: #f9ebc4;
+	border: 1px solid #fc2f68;
 }
 
 #boton__mascota{
