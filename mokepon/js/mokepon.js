@@ -96,12 +96,13 @@ function iniciarJuego(){
 function seleccionarMascotaJugador(){
     sectionSeleccionarMascota.style.display = 'none';
     sectionSeleccionarAtaque.style.display = 'flex';
+
     if(inputHipodogue.checked){
-        spanMascotaJugador.innerHTML = 'Hipodogue';
+        spanMascotaJugador.innerHTML = inputHipodogue.id
     }else if(inputCapipepo.checked){
-        spanMascotaJugador.innerHTML = 'Capipepo';
+        spanMascotaJugador.innerHTML = inputCapipepo.id
     }else if(inputRatigueya.checked){
-        spanMascotaJugador.innerHTML = 'Ratigueya';
+        spanMascotaJugador.innerHTML = inputRatigueya.id
     }else {
         alert('Ninguna mascota fue seleccionada.');
         reiniciarJuego();
