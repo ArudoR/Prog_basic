@@ -21,10 +21,30 @@ const sectionMensajes = document.getElementById('resultado')
 const ataquesDelJugador = document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
 
+
+let mokepones = []
 let ataqueJugador;
 let ataqueEnemigo;
 let vidasJugador = 3;
 let vidasEnemigo = 3;
+
+class Mokepon {
+    constructor(nombre, foto, vida){
+        this.nombre = nombre
+        this.foto = foto
+        this.vida = vida
+    }
+}
+
+let hipodoge = new Mokepon('Hipodogue', './assets/DALL·E 2023-03-09 10.49.13 - hipodoge great creature of a 3d videogame fight with a sword its a combination of a hipopotamus and shiba inu meme in rusia train station.png', 5)
+
+let capipepo = new Mokepon('Capipepo', './assets/DALL·E 2023-03-17 11.42.03 - I am looking for an image of a pokemon-like creature that is similar to a capybara that controls electrical powers and is located inside a subway stat.png', 5)
+
+let ratigueya = new Mokepon('Ratigueya', './assets/DALL·E 2023-03-17 11.47.37 - a digital art image of a rather large and imposing tiger-like pokemon-like creature with angry facial features that are rodent-like.png', 5)
+
+mokepones.push(hipodoge, capipepo, ratigueya)
+
+console.log(mokepones)
 
 function iniciarJuego(){
     sectionSeleccionarAtaque.style.display = 'none';
