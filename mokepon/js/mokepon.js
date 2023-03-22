@@ -1,9 +1,7 @@
 const sectionSeleccionarAtaque = document.getElementById('seleccionar__ataque')
 const sectionReiniciar = document.getElementById('reiniciar')
 const botonMascota = document.getElementById('boton__mascota')
-const botonFuego = document.getElementById('boton__fuego')
-const botonAgua = document.getElementById('boton__agua')
-const botonTierra = document.getElementById('boton__tierra')
+
 const botonReiniciar = document.getElementById('boton__reiniciar')
 
 const sectionSeleccionarMascota = document.getElementById('seleccionar__mascota')
@@ -18,6 +16,7 @@ const sectionMensajes = document.getElementById('resultado')
 const ataquesDelJugador = document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
 const contenedorTarjetas = document.getElementById('contenedorTarjetas')
+const contenedorAtaques = document.getElementById('contenedorAtaques')
 
 let mokepones = []
 let ataqueJugador;
@@ -26,6 +25,11 @@ let opcionDeMokepones
 let inputHipodogue
 let inputCapipepo
 let inputRatigueya
+let mascotaJugador
+let ataquesMokepon
+let botonFuego
+let botonAgua
+let botonTierra
 
 let vidasJugador = 3;
 let vidasEnemigo = 3;
@@ -87,9 +91,6 @@ function iniciarJuego(){
     })
     sectionReiniciar.style.display = 'none';
     botonMascota.addEventListener('click', seleccionarMascotaJugador);
-    botonFuego.addEventListener('click', ataqueFuego);
-    botonAgua.addEventListener('click', ataqueAgua);
-    botonTierra.addEventListener('click', ataqueTierra);
     botonReiniciar.addEventListener('click', reiniciarJuego);
 }
 
@@ -99,16 +100,47 @@ function seleccionarMascotaJugador(){
 
     if(inputHipodogue.checked){
         spanMascotaJugador.innerHTML = inputHipodogue.id
+        mascotaJugador = inputHipodogue.id
     }else if(inputCapipepo.checked){
         spanMascotaJugador.innerHTML = inputCapipepo.id
+        mascotaJugador = inputCapipepo.id
     }else if(inputRatigueya.checked){
         spanMascotaJugador.innerHTML = inputRatigueya.id
+        mascotaJugador = inputRatigueya.id
     }else {
         alert('Ninguna mascota fue seleccionada.');
         reiniciarJuego();
     }
 
+    extraerAtaques(mascotaJugador);
     seleccionarMascotaEnemigo();
+}
+
+function extraerAtaques(mascotaJugador){
+    let ataques
+    for (let i = 0; i < mokepones.length; i++){
+        if(mascotaJugador === mokepones[i].nombre){
+            ataques = mokepones[i].ataques
+        }
+    }
+    mostrarAtaques(ataques)
+}
+
+function mostrarAtaques(ataques){
+    ataques.forEach((ataque) =>{
+        ataquesMokepon = `
+        <button id=${ataque.id} class="boton_de_ataque">${ataque.nombre}</button>
+        `
+        contenedorAtaques.innerHTML += ataquesMokepon
+    })
+
+    botonFuego = document.getElementById('boton__fuego')
+    botonAgua = document.getElementById('boton__agua')
+    botonTierra = document.getElementById('boton__tierra')
+
+    botonFuego.addEventListener('click', ataqueFuego);
+    botonAgua.addEventListener('click', ataqueAgua);
+    botonTierra.addEventListener('click', ataqueTierra);
 }
 
 function seleccionarMascotaEnemigo(){
