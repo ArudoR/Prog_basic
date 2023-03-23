@@ -200,10 +200,13 @@ function indexAmbosOponentes(jugador, enemigo){
 }
 
 function combate(){
-    for (let index = 0; index < ataqueJugador.length; index++) {
-        if(ataqueJugador[index] === ataqueEnemigo[index]){
-            indexAmbosOponentes(index, index)
+    for (let i = 0; i < ataqueJugador.length; i++) {
+        if(ataqueJugador[i] === ataqueEnemigo[i]){
+            indexAmbosOponentes(i, i)
             crearMensaje('¡¡EMPATE!!')
+            empate ++
+        }else if(){
+
         }
     }
 
