@@ -34,6 +34,8 @@ let botonTierra
 let botones = []
 let indexAtaqueJugador
 let indexAtaqueEnemigo
+let victoriasJugador = 0
+let victoriasEnemigo = 0
 
 let vidasJugador = 3;
 let vidasEnemigo = 3;
@@ -204,34 +206,32 @@ function combate(){
         if(ataqueJugador[i] === ataqueEnemigo[i]){
             indexAmbosOponentes(i, i)
             crearMensaje('¡¡EMPATE!!')
-            empate ++
-        }else if(){
-
+            // victoriasJugador++
+            // spanVidasJugador.innerHTML = victoriasJugador
+        }else if((ataqueJugador[i] === 'FUEGO' && ataqueEnemigo[i] === 'TIERRA') || (ataqueJugador[i] === 'AGUA' && ataqueEnemigo[i] === 'FUEGO') || (ataqueJugador[i] === 'TIERRA' && ataqueEnemigo[i] === 'AGUA')){
+            indexAmbosOponentes(i, i)
+            crearMensaje('¡¡GANASTE!!')
+            victoriasJugador++
+            spanVidasJugador.innerHTML = victoriasJugador
+        }else{
+            indexAmbosOponentes(i, i)
+            crearMensaje('¡¡PERDISTE!!')
+            victoriasEnemigo++
+            spanVidasEnemigo.innerHTML = victoriasEnemigo
         }
     }
 
-    //COMBATE
-    if(ataqueEnemigo == ataqueJugador){
-        crearMensaje('¡¡EMPATE!!');
-    }else if((ataqueJugador == 'FUEGO' && ataqueEnemigo == 'TIERRA') || (ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO') || (ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA')){
-        crearMensaje('¡¡GANASTE!!');
-        vidasEnemigo--;
-        spanVidasEnemigo.innerHTML = vidasEnemigo;
-    }else{
-        crearMensaje('¡¡PERDISTE!!');
-        vidasJugador--;
-        spanVidasJugador.innerHTML = vidasJugador;
-    }
-
     //Revisar las vidas.
-    revisarVidas();
+    revisarVictorias();
 }
 
-function revisarVidas(){
-    if(vidasEnemigo == 0){
-        crearMensajeFinal("¡¡Felicitaciones Ganaste :D !!");
-    }else if(vidasJugador == 0){
-        crearMensajeFinal("Lo siento, perdiste :C");
+function revisarVictorias(){
+    if(victoriasJugador === victoriasEnemigo){
+        crearMensajeFinal("Esto fue un empate!!!")
+    }else if(victoriasJugador > victoriasEnemigo){
+        crearMensajeFinal("¡FELICITACIONES! Ganaste :D")
+    }else{
+        crearMensajeFinal("Lo siento, PERDISTE :C")
     }
 }
 
