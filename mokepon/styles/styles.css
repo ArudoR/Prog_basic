@@ -85,7 +85,7 @@ input:checked + label{
 	box-sizing: border-box;
 	border-radius: 20px;
 	border-color: transparent;
-	width: 150px;
+	width: 80px;
 	color: #fc2f68;
 	font-family: 'Poppins', sans-serif;
 }
