@@ -18,6 +18,9 @@ const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
 const contenedorTarjetas = document.getElementById('contenedorTarjetas')
 const contenedorAtaques = document.getElementById('contenedorAtaques')
 
+const sectionVerMapa = document.getElementById('ver-mapa')
+const mapa = document.getElementById('mapa')
+
 let mokepones = []
 let ataqueJugador = []
 let ataqueEnemigo = []
@@ -81,6 +84,8 @@ mokepones.push(hipodoge, capipepo, ratigueya)
 
 function iniciarJuego(){
     sectionSeleccionarAtaque.style.display = 'none';
+    sectionVerMapa.style.display = 
+
     mokepones.forEach((Mokepon)=>{
         opcionDeMokepones = `
         <input type="radio" name="mascota" id=${Mokepon.nombre}>
