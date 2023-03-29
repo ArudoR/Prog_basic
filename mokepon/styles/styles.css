@@ -25,6 +25,12 @@ body{
 	font-size: 52px;
 }
 
+.titulo {
+	color: white;
+	font-size: 32px;
+	font-family: 'Fredoka One', cursive;
+  }
+
 .subtitulo{
 	color: #ffb391;
 	font-size: 28px;
