@@ -92,6 +92,14 @@ hipodoge.ataques.push(
     {nombre: '🍃', id: 'boton__tierra'},
 )
 
+hipodogeEnemigo.ataques.push(
+    {nombre: '🌊', id: 'boton__agua'},
+    {nombre: '🌊', id: 'boton__agua'},
+    {nombre: '🌊', id: 'boton__agua'},
+    {nombre: '🔥', id: 'boton__fuego'},
+    {nombre: '🍃', id: 'boton__tierra'},
+)
+
 capipepo.ataques.push(
     {nombre: '🍃', id: 'boton__tierra'},
     {nombre: '🍃', id: 'boton__tierra'},
@@ -100,7 +108,23 @@ capipepo.ataques.push(
     {nombre: '🔥', id: 'boton__fuego'},
 )
 
+capipepoEnemigo.ataques.push(
+    {nombre: '🍃', id: 'boton__tierra'},
+    {nombre: '🍃', id: 'boton__tierra'},
+    {nombre: '🍃', id: 'boton__tierra'},
+    {nombre: '🌊', id: 'boton__agua'},
+    {nombre: '🔥', id: 'boton__fuego'},
+)
+
 ratigueya.ataques.push(
+    {nombre: '🔥', id: 'boton__fuego'},
+    {nombre: '🔥', id: 'boton__fuego'},
+    {nombre: '🔥', id: 'boton__fuego'},
+    {nombre: '🌊', id: 'boton__agua'},
+    {nombre: '🍃', id: 'boton__tierra'},
+)
+
+ratigueyaEnemigo.ataques.push(
     {nombre: '🔥', id: 'boton__fuego'},
     {nombre: '🔥', id: 'boton__fuego'},
     {nombre: '🔥', id: 'boton__fuego'},
@@ -135,7 +159,6 @@ function iniciarJuego(){
 
 function seleccionarMascotaJugador(){
     sectionSeleccionarMascota.style.display = 'none';
-    //sectionSeleccionarAtaque.style.display = 'flex';
 
     if(inputHipodogue.checked){
         spanMascotaJugador.innerHTML = inputHipodogue.id
@@ -154,7 +177,6 @@ function seleccionarMascotaJugador(){
     extraerAtaques(mascotaJugador);
     sectionVerMapa.style.display = 'flex'
     iniciarMapa()
-    seleccionarMascotaEnemigo();
 }
 
 function extraerAtaques(mascotaJugador){
@@ -206,16 +228,15 @@ function secuenciaAtaque(){
 
 }
 
-function seleccionarMascotaEnemigo(){
-    let mascotaAleatoria = aleatorio(0, mokepones.length - 1);
-
-    spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
-    ataquesMokeponEnemigo = mokepones[mascotaAleatoria].ataques
+function seleccionarMascotaEnemigo(enemigo){
+    spanMascotaEnemigo.innerHTML = enemigo.nombre
+    ataquesMokeponEnemigo = enemigo.ataques
     secuenciaAtaque()
 }
 
 function ataqueAleatorioEnemigo(){
-    let ataqueAleatorio = aleatorio(0, mokepones.length -1);
+    console.log('Ataques enemigo: ', ataquesMokeponEnemigo);
+    let ataqueAleatorio = aleatorio(0, ataquesMokeponEnemigo.length -1);
 
     if(ataqueAleatorio == 0 || ataqueAleatorio == 1){
         ataqueEnemigo.push('FUEGO')
@@ -399,7 +420,11 @@ function revisarColision(enemigo){
     }
 
     detenerMovimiento()
-    alert("Hay colision " + enemigo.nombre)
+    clearInterval(intervalo)
+    console.log('Se detecto una colision');
+    sectionSeleccionarAtaque.style.display = 'flex'
+    sectionVerMapa.style.display = 'none'
+    seleccionarMascotaEnemigo(enemigo)
 }
 
 window.addEventListener('load', iniciarJuego);
